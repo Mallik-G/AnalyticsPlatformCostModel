@@ -1,7 +1,7 @@
 Cost model for a multi-tenant analytics platform
 ================================================
 
-![](media/image1.png){width="0.6166666666666667in" height="0.17777777777777778in"}
+![](media/AnalyticsPlatform.png)
 
 Background
 ----------
@@ -17,23 +17,26 @@ Contoso have asked for a flexible cost model which will allow them run a number 
 Understanding the cost model
 ----------------------------
 
-This cost model is flexible and can be tailored to cater for multiple scenarios, but the initial purpose of this model was to forecast costs over time for a typical lambda architecture that supports high throughput and low latency. The set of possible services chosen is by no means be limited to those already provided in this "default" model, but should be chosen to suit your requirements. These should be entered accordingly in the "Monthly Component Cost" tab along with their associated costs. Various indicators are used to denote whether a specific service is used in a certain scenario but these are covered in more detail later.
+In this repository you will find a file entitled "Generic Cost Model.xlsx" which is the cost model. This cost model is flexible and can be tailored to cater for multiple scenarios, but the initial intent of this model was to respond to Contoso's requirement above, by creating a model to forecast costs over time for a typical lambda architecture that supports high throughput and low latency. 
+The set of services listed in the "Monthly Component Cost" tab is by no means limited to those already provided in the Contoso model, and should be replaced with the set of services for your particular requirements. These should be entered accordingly in the "Monthly Component Cost" tab along with their associated costs. Various indicators are used to denote whether a specific service is used in a certain scenario but these are covered in more detail later.
 
-Note: For the avoid of doubt, any reference to customers below will be in the context of customers of Contoso unless explicitly stated.
+Note: For the avoidance of doubt, any reference to customers below will be in the context of customers of Contoso unless explicitly stated.
 
-The goal is to forecast the costs associated with running the platform as more workloads, use-cases, customers and users are on-boarded over time. Specifically it divides the costs into various categories to demonstrate how they may change over time as the platform is ramped up to full capacity. This is not a mandatory feature of the cost model and it can be adapted to suit your scenario. It was designed this way as most customers will likely opt for a phased approach to building a large analytics platform rather than trying to "boil the ocean" on day one.
+The goal of the model is to forecast the costs associated with running the platform as more workloads, use-cases, customers and users are on-boarded over time. Specifically it divides the costs into various categories to demonstrate how they may change over time as the platform is ramped up to full capacity. This is not a mandatory feature of the cost model and it can be adapted to suit your scenario. It was designed this way as most customers will likely opt for a phased approach to building a large analytics platform rather than trying to "boil the ocean" on day 1.
 
-The model has the following characteristics and makes certain "default" assumptions which can be changed as required:
+With reference to the diagram above, the model has the following characteristics and makes certain "default" assumptions but these can be changed as required:
 
--   the analytics platform is to host a number customers and each customer has users
+-   The analytics platform is to host a number customers and each customer has users.
 
--   there is a *base cost* for hosting the platform which is incurred regardless of whether any customers have been onboarded
+-   There is a *base cost* for hosting the platform which is incurred regardless of whether any customers have been onboarded.
 
--   the *base* cost can be split by *streaming* and non-streaming options
+-   The *base* cost can be split by *streaming* and non-streaming options. Non Streaming represents batch based workloads.
 
--   non-base (i.e. customer incurred) streaming costs can be split into a customer charge and a per user charge. This is denoted by specifying the cost in the "Price per customer" column vs the "Price per user" column
+-   Non-base refers to the variable cost, i.e. the per customer or per user cost. This is denoted by specifying the cost in the "Price per customer" column vs the "Price per user" column.
 
--   Up to 5 use-cases can be supported. Use-cases require a mix of Azure services (specified in the "Monthly Component Cost" tab using the indicators) and customers can subscribe to any of the use-cases which is denoted by specifying a number of users against each use-case. The use-cases can incur either a customer cost or a per-user cost. The former is the cost associated with standing up the customer environment and the latter is associated with the scaling of the services to support increased users and consumption
+-   Up to 5 use-cases can be supported as is, but more can be added by extending the indicator columns in the "Monthly Component Cost" and the Use-case columns in "Monthly Cost Forecast" tab. 
+
+-   Use-cases require a mix of Azure services - specified in the "Monthly Component Cost" tab using the indicator columns, and customers can be added to any of the use-cases by specifying the number of users against a use-case in the "Monthly Cost Forecast" column. The use-cases can incur either a customer cost or a per-user cost depending which column the cost was attributed to in the "Monthly Component Cost" i.e. either "Price per customer" or "Price per user" column (P or Q). The former is the cost associated with standing up the customer environment and the latter is associated with the scaling of the services to support increased users and consumption
 
 -   the platform will have a number of non-prod environments which are influenced by the number of customers and users on the platform
 
