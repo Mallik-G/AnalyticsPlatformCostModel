@@ -1,5 +1,5 @@
-Cost model for a multi-tenant analytics platform
-================================================
+Cost model for a multi-tenant analytics platform on Azure
+=========================================================
 
 ![](media/AnalyticsPlatform.png)
 
